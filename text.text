@@ -1,0 +1,66 @@
+package Tests;
+import java.io.InputStream;
+import java.util.Map;
+
+import org.yaml.snakeyaml.Yaml;
+
+public class YamlParser {
+
+    public static void main(String[] args) {
+        // Load the YAML file
+        Yaml yaml = new Yaml();
+        
+        // Use InputStream to load the file (config.yml)
+        InputStream inputStream = YamlParser.class.getClassLoader().getResourceAsStream("config.yml");
+        
+ 
+        Map<String, Object> yamlData = yaml.load(inputStream);
+		        
+        String keyToFind = "userPassword";       
+        
+        for (Map.Entry<String, Object> entry : yamlData.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
+            if (key.equals(keyToFind)) {
+                System.out.println("Key: " + key + " exists with value: " + value);
+            } else {
+                System.out.println("Key: " + key + " does not match the search key.");
+            }
+        }
+
+        // You can also use containsKey() to directly check if the key exists
+        if (yamlData.containsKey(keyToFind)) {
+            System.out.println("The key '" + keyToFind + "' exists with value: " + yamlData.get(keyToFind));
+        } else {
+            System.out.println("The key '" + keyToFind + "' does not exist in the YAML data.");
+        }
+    }
+        
+		        
+//		        System.out.println("value: " + value);
+		    
+        
+        
+//        if (inputStream != null) {
+//            // Parse the YAML into a Map
+//            Map<String, String> yamlData = yaml.load(inputStream);
+//
+//            // Example: Iterating through simple keys like 'server' and 'database'
+//            for (String key : yamlData.keySet()) {
+//                System.out.println("Key: " + key);
+//                Object value = yamlData.get(key);
+//
+//                // If the value is a Map (nested object), iterate further
+//                if (key == "userId") {
+//                		System.out.println(key);
+//                       
+//                    }
+//                } 
+//               
+//            
+//        } else {
+//            System.out.println("YAML file not found!");
+//        }
+    
+}

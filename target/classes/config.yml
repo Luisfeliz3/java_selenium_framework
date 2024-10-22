@@ -1,0 +1,34 @@
+userId:
+   - selector: ".nav-link.services"
+   - type: css
+   - timeout: 2000
+
+userPassword:
+   - selector: "//input[@placeholder='Password (required)'']"
+   - type: xpath
+   - timeout: 2000
+
+navLoginButton:
+   - selector: "a[type=\"submit\"]"
+   - type: css
+   - timeout: 2000
+ 
+userLoginButton:
+    - selector: ".login-now.btn.btn-primary"
+    - type: css
+    - timeout: 2000
+
+signButton:
+    - selector: ".signup-signup-now.btn.btn-primary"
+    - type: css
+    - timeout: 2000
+
+dashboard:
+    - selector: "img[alt='app_logo']"
+    - type: css
+    - timeout: 2000
+
+statement_balance:
+     - selector: "h5[class='card-title']"
+     - type: css
+     - timeout: 2000
